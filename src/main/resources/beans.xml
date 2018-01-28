@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="BasicPhone" class="com.codegeekslab.type.BasicPhone"
+		init-method="checkNetwork" destroy-method="checkDuration" />
+	<bean id="SmartPhone" lazy-init="true"  class="com.codegeekslab.type.SmartPhone"
+		init-method="checkNetwork" destroy-method="checkDuration" />
+
+
+	<bean id="CallingApp"  class="com.codegeekslab.app.CallingApp">
+		<property name="phone" ref="BasicPhone" />
+	</bean>
+
+</beans>
